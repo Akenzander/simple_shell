@@ -1,19 +1,28 @@
 #include "shell.h"
 
-void *my_realloc(void *ptr, size_t size)
+void *my_realloc(void *ptr, size_t newsize)
 {
-	if (size == 0)
+	void *new_ptr;
+
+	if (ptr == NULL)
 	{
-		free(ptr);
-		return (NULL);
+		new_ptr = malloc(newsize);
 	}
-
-	void *new_ptr = malloc(size);
-
-	if (ptr != NULL)
+	else
 	{
-		memcpy(new_ptr, ptr, size);
-		free(ptr);
+		if (newsize == 0)
+		{
+			free(ptr);
+			new_ptr = NULL;
+		}
+		else
+		{
+			new_ptr = malloc(newsize);
+			if (new_ptr != NULL)
+			{
+				memcpy(new_ptr, ptr, newsize);
+			}
+		}
 	}
 	return (new_ptr);
 }
