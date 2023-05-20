@@ -1,5 +1,11 @@
-#include <stdio.h>
-#include <string.h>
+#include <shell.h>
+
+/**
+ * @str: Pointer to the string to be tokenized
+ * @delim: Pointer to the delimeters in the string
+ *
+ * Return: Token from the string
+ */
 
 char *my_strtok(char *str, const char *delim) {
     static char *last_token = NULL; /*remembers the last token*/

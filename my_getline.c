@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
+#include <shell.h>
 
 /**
  * @lineptr: A double pointer to the buffer where the line will be stored
@@ -42,7 +40,7 @@ ssize_t my_getline(char **lineptr, size_t *n, FILE *stream)
                 if (incr >= *n)
                 {
                         *n += 128; /*increase the buffer size*/
-                        char *new_ptr = realloc(*lineptr, *n);
+                        char *new_ptr = my_realloc(*lineptr, *n);
                         if (new_ptr == NULL)
                         {
                                 perror("Unable to allocate memory");
