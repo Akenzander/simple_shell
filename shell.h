@@ -12,6 +12,7 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 
+extern char **environ;
 ssize_t my_getline(char **lineptr, size_t *n, FILE *stream);
 char *my_strtok(char *str, const char *delim);
 void *my_realloc(void *ptr, size_t size);
