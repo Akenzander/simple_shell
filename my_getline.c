@@ -12,7 +12,8 @@ ssize_t my_getline(char **lineptr, size_t *n, FILE *stream)
 {
         ssize_t inptread = 0;
         size_t incr = 0;
-	char *new_ptr;
+	char *new_ptr = NULL;
+	void *c = (void *)new_ptr;
 
         if (*lineptr == NULL)
         {
@@ -41,8 +42,8 @@ ssize_t my_getline(char **lineptr, size_t *n, FILE *stream)
                 if (incr >= *n)
                 {
                         *n += 128; /*increase the buffer size*/
-                        new_ptr = my_realloc(*lineptr, *n);
-                        if (new_ptr == NULL)
+                        c = my_realloc(*lineptr, *n);
+                        if (c == NULL)
                         {
                                 perror("Unable to allocate memory");
                                 return (-1);

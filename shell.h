@@ -15,4 +15,10 @@
 ssize_t my_getline(char **lineptr, size_t *n, FILE *stream);
 char *my_strtok(char *str, const char *delim);
 void *my_realloc(void *ptr, size_t size);
+char *_strcpy(char *dest, char *src);
+char *_strcat(char *dest, char *src);
+char *_strncat(char *dest, char *src, int n);
+int _strcmp(char *s1, char *s2);
+unsigned int _strspn(char *s, char *accept);
+char *_strpbrk(char *s, char *accept);
 #endif
